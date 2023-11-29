@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vokabelspiel</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive; /* Comic Sans als Schriftart */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-image: linear-gradient(to bottom right, #ff9999, #66ccff); /* Farbverlauf als Hintergrundbild */
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px; /* Größerer Abstand oben */
+      font-size: 3em; /* Größere Schriftgröße */
+      color: black; /* Textfarbe schwarz */
+    }
+
+    .questions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .question {
+      text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #42b948;
+    }
+
+    .feedback {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  
+  </style>
+</head>
+<body>
+  <h1>Vokabelspiel</h1>
+  <div class="questions">
+    <div class="question">
+        <img src="tragenpng.png" width="30%"  alt="quiz">
+      <p>Was heißt "tragen" auf Französisch?</p>
+      <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+      <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['porter', 'träger', 'trage'])">Antwort überprüfen</button>
+      <p class="feedback"></p>
+    </div>
+    <div class="question">
+        <img src="pnghaus.png" width="30%"  alt="quiz">
+      <p>Was bedeutet "ein Haus" auf Französisch?</p>
+      <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+      <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['une maison', 'keine Ahnung', 'kp'])">Antwort überprüfen</button>
+      <p class="feedback"></p>
+    </div>
+    <div class="question">
+        <img src="Was macht.png" width="40%"  alt="quiz">
+      <p>Was heißt "Que fait X?" auf auf Deutsch?</p>
+      <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+      <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['Was macht X?', 'was macht x', 'was macht X'])">Antwort überprüfen</button>
+      <p class="feedback"></p>
+    </div>
+    <div class="question">
+        <img src="Ortpng.png" width="30%"  alt="quiz">
+        <p>Wie heißt"à" auf Deutsch?</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['da', 'dort'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+      <div class="question">
+        <img src="buch.webp" width="30%"  alt="quiz">
+        <p>Wo findet man "une livre"? (Schreibe in vollen Sätzen auf Deutsch?)</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['in einem Buch und Schreibwarengeschäft'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+      <div class="question">
+        <img src="<comic.png" width="30%"  alt="quiz">
+        <p>Was bedeutet "une BD" auf Deutsch?</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['ein Comic'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+      <div class="question">
+        <img src="shop.png" width="30%"  alt="quiz">
+        <p>Was bedeutet "un magasin" auf Deutsch?</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['ein Geschäft', 'ein Laden'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+    <div class="question">
+        <img src="wasistdas.png" width="30%"  alt="quiz">
+        <p>Was heißt "Qu'est-ce que c'est?" auf auf Deutsch?</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['Was ist das?', 'was ist das', 'siu'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+      <div class="question">
+        <img src="Hören.png" width="30%"  alt="quiz">
+        <p>Was heißt "hören" auf auf Französisch?</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['ecouter', 'écouter', 'siu'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+      <div class="question">
+        <img src="Schreiben.png" width="30%"  alt="quiz">
+        <p>Was ist "ein Buch-und Schreibwarengeschäft"auf Französisch? </p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['une labrairie-papeterie', 'une labrairie papeterie', 'siu'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+      <div class="question">
+        <img src="Starße.webp" width="30%"  alt="quiz">
+        <p>Was heißt "dans la rue" auf auf Deutsch?</p>
+        <input type="text" class="userAnswer" placeholder="Antwort eingeben">
+        <button onclick="checkAnswer(this.previousElementSibling, this.nextElementSibling, ['auf der Straße', 'auf einer Straße', 'siu'])">Antwort überprüfen</button>
+        <p class="feedback"></p>
+      </div>
+  </div>
+    <!-- Weitere Fragen hier -->
+  </div>
+  <script>
+    function checkAnswer(inputField, feedbackField, correctAnswers) {
+      var userAnswer = inputField.value.toLowerCase();
+      var correct = false;
+
+      correctAnswers.forEach(function(answer) {
+        if (userAnswer === answer.toLowerCase()) {
+          correct = true;
+        }
+      });
+
+      if (correct) {
+        feedbackField.innerHTML = "Richtig!";
+      } else {
+        feedbackField.innerHTML = "Leider falsch. Versuche es erneut!";
+        
+      }
+
+      feedbackField.classList.add('show');
+    }
+  </script>
+</body>
+</html>
